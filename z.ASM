@@ -54,21 +54,21 @@ odd: ;это тогоэто. забыл. Делим на два, если остаток 0 - то оно чётное иначе нет
 mov dx,ax ;сохраняем значение еткущее в dx, xnj,s gjnjv pfgb[yenm tuj d vfccbd
 idiv bl
 cmp ah,0
-je od
-jmp ev
-
-od:
-mov si,[o] ;в si указатель на массив чётных, потом туда значение, апаем указатель, сохрняем его
-mov [si],dx
-inc si
-inc si
-mov [o],si
-jmp exitodd
+je ev
+jmp od
 
 ev:
-mov si,[e]  ;тоже самое еророче
+mov si,[e] ;в si указатель на массив чётных, потом туда значение, апаем указатель, сохрняем его
 mov [si],dx
 inc si
 inc si
 mov [e],si
+jmp exitodd
+
+od:
+mov si,[o]  ;тоже самое еророче
+mov [si],dx
+inc si
+inc si
+mov [o],si
 jmp exitodd
